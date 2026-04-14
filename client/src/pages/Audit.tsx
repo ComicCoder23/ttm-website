@@ -1,381 +1,453 @@
 import Layout from "@/components/Layout";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CheckCircle } from "lucide-react";
-import { useState } from "react";
-import { toast } from "sonner";
+import { ArrowRight, CheckCircle, Clock, Search, Star, Globe, BarChart3, Zap, Shield } from "lucide-react";
+
+const TTM_NAVY = "#1B3A6B";
+const TTM_ORANGE = "#F47920";
+const TTM_GREEN = "#22C55E";
 
 export default function Audit() {
-  const [formData, setFormData] = useState({
-    name: "",
-    businessName: "",
-    trade: "",
-    website: "",
-    phone: "",
-    email: "",
-    serviceArea: "",
-    employees: "",
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleTradeChange = (value: string) => {
-    setFormData((prev) => ({ ...prev, trade: value }));
-  };
-
-  const handleServiceAreaChange = (value: string) => {
-    setFormData((prev) => ({ ...prev, serviceArea: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    // Validate required fields
-    if (!formData.name || !formData.businessName || !formData.trade || !formData.phone || !formData.email || !formData.serviceArea) {
-      toast.error("Please fill in all required fields");
-      return;
-    }
-
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast.success("Audit request submitted! We'll contact you within 24 hours.");
-      setFormData({
-        name: "",
-        businessName: "",
-        trade: "",
-        website: "",
-        phone: "",
-        email: "",
-        serviceArea: "",
-        employees: "",
-      });
-    }, 1000);
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+    const name = encodeURIComponent(data.get("name") as string);
+    const trade = encodeURIComponent(data.get("trade") as string);
+    const location = encodeURIComponent(data.get("location") as string);
+    const website = encodeURIComponent(data.get("website") as string ?? "None");
+    const google = encodeURIComponent(data.get("google") as string);
+    const reviews = encodeURIComponent(data.get("reviews") as string);
+    const problem = encodeURIComponent(data.get("problem") as string);
+    const goal = encodeURIComponent(data.get("goal") as string);
+    const body = `Hi Tech Tradie Media,%0A%0AI'd like a free digital audit.%0A%0AName: ${name}%0ATrade: ${trade}%0ALocation: ${location}%0AWebsite: ${website}%0AGoogle Business set up: ${google}%0ANumber of reviews: ${reviews}%0ABiggest challenge: ${problem}%0AMain goal: ${goal}%0A%0ALooking forward to hearing from you.`;
+    window.location.href = `mailto:techtradiemedia@gmail.com?subject=Free Digital Audit Request — ${trade}&body=${body}`;
   };
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-primary text-white">
-        <div className="container max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Get Your Free Digital Presence Audit</h1>
-          <p className="text-xl text-white/90">
-            Find out exactly what you need to do to get more customers online – no strings attached.
-          </p>
-        </div>
-      </section>
 
-      {/* Main Content */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Left Column - What You Get */}
-            <div>
-              <h2 className="text-3xl font-bold text-primary mb-8">What's in the Audit?</h2>
-              
-              <div className="space-y-6">
-                {[
-                  {
-                    title: "Website Quality Check",
-                    desc: "How fast, mobile-friendly, and effective is your current site?",
-                  },
-                  {
-                    title: "Google Business Profile Review",
-                    desc: "Is your profile optimized to attract local customers?",
-                  },
-                  {
-                    title: "Reviews & Reputation Score",
-                    desc: "How do you stack up against competitors? Are you getting enough positive feedback?",
-                  },
-                  {
-                    title: "Search Visibility Analysis",
-                    desc: "How easily do customers find you for key services in your area?",
-                  },
-                  {
-                    title: "Lead Capture System Review",
-                    desc: "Are your website visitors turning into actual enquiries?",
-                  },
-                ].map((item, idx) => (
-                  <div key={idx} className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <CheckCircle size={24} className="text-accent mt-1" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg text-primary mb-2">{item.title}</h3>
-                      <p className="text-foreground/70">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+      {/* ── TOP BANNER ── */}
+      <div style={{ background: TTM_GREEN }} className="w-full py-2 px-4 text-center">
+        <p className="text-sm font-bold text-white tracking-wide">
+          Free Audit — No obligation, no sales pressure. Just honest feedback on your online presence.
+        </p>
+      </div>
 
-              <div className="mt-12 p-6 bg-secondary rounded-lg border-2 border-accent">
-                <h3 className="font-bold text-lg text-primary mb-3">What You'll Get</h3>
-                <p className="text-foreground/80 mb-4">
-                  You'll receive a straightforward, actionable improvement plan tailored to your business, showing you exactly how to get more jobs.
-                </p>
-                <ul className="space-y-2 text-sm text-foreground/70">
-                  <li>✓ Detailed audit report</li>
-                  <li>✓ Specific recommendations</li>
-                  <li>✓ Priority action items</li>
-                  <li>✓ No obligation to hire us</li>
-                </ul>
-              </div>
+      {/* ── HERO ── */}
+      <section className="py-20 md:py-28 relative overflow-hidden" style={{ background: TTM_NAVY }}>
+        <div className="absolute inset-0" style={{
+          backgroundImage: "linear-gradient(rgba(244,121,32,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(244,121,32,0.06) 1px, transparent 1px)",
+          backgroundSize: "40px 40px"
+        }} />
+        <div className="container max-w-5xl mx-auto px-4 relative z-10">
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-orange-400/30 bg-orange-500/10">
+              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span className="text-orange-300 text-sm font-semibold tracking-wider uppercase">Founding Client Pricing Available</span>
             </div>
-
-            {/* Right Column - Form */}
-            <div>
-              <div className="bg-secondary p-8 rounded-lg border-2 border-accent">
-                <h3 className="text-2xl font-bold text-primary mb-6">Get Your Free Audit Now</h3>
-                <p className="text-foreground/70 mb-8">
-                  Fill out the quick form below, and we'll get to work on your personalized digital audit. It's the first step to getting more work.
-                </p>
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Name */}
-                  <div>
-                    <Label htmlFor="name" className="text-foreground font-semibold mb-2 block">
-                      Your Name *
-                    </Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder="John Smith"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="border-border"
-                      required
-                    />
-                  </div>
-
-                  {/* Business Name */}
-                  <div>
-                    <Label htmlFor="businessName" className="text-foreground font-semibold mb-2 block">
-                      Business Name *
-                    </Label>
-                    <Input
-                      id="businessName"
-                      name="businessName"
-                      type="text"
-                      placeholder="Your Plumbing Co"
-                      value={formData.businessName}
-                      onChange={handleChange}
-                      className="border-border"
-                      required
-                    />
-                  </div>
-
-                  {/* Trade */}
-                  <div>
-                    <Label htmlFor="trade" className="text-foreground font-semibold mb-2 block">
-                      Trade *
-                    </Label>
-                    <Select value={formData.trade} onValueChange={handleTradeChange}>
-                      <SelectTrigger className="border-border">
-                        <SelectValue placeholder="Select your trade" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="plumber">Plumber</SelectItem>
-                        <SelectItem value="electrician">Electrician</SelectItem>
-                        <SelectItem value="builder">Builder</SelectItem>
-                        <SelectItem value="roofer">Roofer</SelectItem>
-                        <SelectItem value="carpenter">Carpenter</SelectItem>
-                        <SelectItem value="joiner">Joiner</SelectItem>
-                        <SelectItem value="heating-engineer">Heating Engineer</SelectItem>
-                        <SelectItem value="gas-engineer">Gas Engineer</SelectItem>
-                        <SelectItem value="boiler-installer">Boiler Installer</SelectItem>
-                        <SelectItem value="bathroom-fitter">Bathroom Fitter</SelectItem>
-                        <SelectItem value="kitchen-fitter">Kitchen Fitter</SelectItem>
-                        <SelectItem value="plasterer">Plasterer</SelectItem>
-                        <SelectItem value="bricklayer">Bricklayer</SelectItem>
-                        <SelectItem value="groundworker">Groundworker</SelectItem>
-                        <SelectItem value="driveway-installer">Driveway Installer</SelectItem>
-                        <SelectItem value="landscaper">Landscaper</SelectItem>
-                        <SelectItem value="garden-maintenance">Garden Maintenance</SelectItem>
-                        <SelectItem value="tree-surgeon">Tree Surgeon</SelectItem>
-                        <SelectItem value="fencing-contractor">Fencing Contractor</SelectItem>
-                        <SelectItem value="painter-decorator">Painter & Decorator</SelectItem>
-                        <SelectItem value="flooring-installer">Flooring Installer</SelectItem>
-                        <SelectItem value="tiler">Tiler</SelectItem>
-                        <SelectItem value="handyman">Handyman</SelectItem>
-                        <SelectItem value="window-installer">Window Installer</SelectItem>
-                        <SelectItem value="door-installer">Door Installer</SelectItem>
-                        <SelectItem value="solar-installer">Solar Panel Installer</SelectItem>
-                        <SelectItem value="security-installer">Security System Installer</SelectItem>
-                        <SelectItem value="locksmith">Locksmith</SelectItem>
-                        <SelectItem value="drainage-specialist">Drainage Specialist</SelectItem>
-                        <SelectItem value="pest-control">Pest Control Services</SelectItem>
-                        <SelectItem value="property-maintenance">Property Maintenance</SelectItem>
-                        <SelectItem value="cleaning-services">Cleaning Services</SelectItem>
-                        <SelectItem value="commercial-cleaning">Commercial Cleaning</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  {/* Website */}
-                  <div>
-                    <Label htmlFor="website" className="text-foreground font-semibold mb-2 block">
-                      Website (Optional)
-                    </Label>
-                    <Input
-                      id="website"
-                      name="website"
-                      type="url"
-                      placeholder="www.yourwebsite.com"
-                      value={formData.website}
-                      onChange={handleChange}
-                      className="border-border"
-                    />
-                  </div>
-
-                  {/* Phone */}
-                  <div>
-                    <Label htmlFor="phone" className="text-foreground font-semibold mb-2 block">
-                      Phone *
-                    </Label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      placeholder="07432 754561"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="border-border"
-                      required
-                    />
-                  </div>
-
-                  {/* Email */}
-                  <div>
-                    <Label htmlFor="email" className="text-foreground font-semibold mb-2 block">
-                      Email *
-                    </Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="you@yourcompany.com"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="border-border"
-                      required
-                    />
-                  </div>
-
-                  {/* Service Area */}
-                  <div>
-                    <Label htmlFor="serviceArea" className="text-foreground font-semibold mb-2 block">
-                      Service Area (UK Region) *
-                    </Label>
-                    <Select value={formData.serviceArea} onValueChange={handleServiceAreaChange}>
-                      <SelectTrigger className="border-border">
-                        <SelectValue placeholder="Select your service area" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="london">London</SelectItem>
-                        <SelectItem value="southeast">South East</SelectItem>
-                        <SelectItem value="southwest">South West</SelectItem>
-                        <SelectItem value="east">East Anglia</SelectItem>
-                        <SelectItem value="midlands">Midlands</SelectItem>
-                        <SelectItem value="northwest">North West</SelectItem>
-                        <SelectItem value="northeast">North East</SelectItem>
-                        <SelectItem value="yorkshire">Yorkshire</SelectItem>
-                        <SelectItem value="wales">Wales</SelectItem>
-                        <SelectItem value="scotland">Scotland</SelectItem>
-                        <SelectItem value="northern-ireland">Northern Ireland</SelectItem>
-                        <SelectItem value="multiple">Multiple Regions</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  {/* Number of Employees */}
-                  <div>
-                    <Label htmlFor="employees" className="text-foreground font-semibold mb-2 block">
-                      Number of Employees (Optional)
-                    </Label>
-                    <Select value={formData.employees} onValueChange={(value) => setFormData((prev) => ({ ...prev, employees: value }))}>
-                      <SelectTrigger className="border-border">
-                        <SelectValue placeholder="Select team size" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="solo">Solo (Just Me)</SelectItem>
-                        <SelectItem value="2-5">2-5 Employees</SelectItem>
-                        <SelectItem value="6-10">6-10 Employees</SelectItem>
-                        <SelectItem value="11-20">11-20 Employees</SelectItem>
-                        <SelectItem value="20plus">20+ Employees</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  {/* Submit Button */}
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-accent hover:bg-orange-600 text-white font-bold py-3 text-lg"
-                  >
-                    {isSubmitting ? "Submitting..." : "Get My Free Audit"}
-                  </Button>
-
-                  <p className="text-xs text-foreground/60 text-center">
-                    We respect your privacy. We'll only use your information to send you the audit.
-                  </p>
-                </form>
-              </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight"
+              style={{ fontFamily: "'Oswald', 'Impact', sans-serif" }}>
+              Find Out Exactly What's<br />
+              <span style={{ color: TTM_ORANGE }}>Costing You Jobs Online</span>
+            </h1>
+            <p className="text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+              A free, honest review of your website, Google Business profile, and local visibility. We'll tell you what's working, what's leaking leads, and the fastest way to fix it.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6">
+              {[
+                { icon: Clock, label: "Response within 24 hours" },
+                { icon: Shield, label: "No obligation whatsoever" },
+                { icon: CheckCircle, label: "Specific, actionable findings" },
+              ].map(({ icon: Icon, label }) => (
+                <div key={label} className="flex items-center gap-2 text-white/70 text-sm">
+                  <Icon size={16} style={{ color: TTM_GREEN }} />
+                  {label}
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-16 md:py-24 bg-secondary">
-        <div className="container max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-primary text-center mb-12">Frequently Asked Questions</h2>
+      {/* ── WHAT WE CHECK ── */}
+      <section className="py-16 md:py-20" style={{ background: "#F8F9FA" }}>
+        <div className="container max-w-5xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-black mb-3" style={{ color: TTM_NAVY, fontFamily: "'Oswald', 'Impact', sans-serif" }}>
+              What We Review in Your Audit
+            </h2>
+            <p className="text-gray-500">Five areas that directly affect how many enquiries you get.</p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {[
               {
-                q: "How long does the audit take?",
-                a: "The audit typically takes 3-5 business days. We'll contact you within 24 hours to confirm receipt of your request.",
+                icon: Globe,
+                title: "Website",
+                checks: ["Speed & mobile", "Trust signals", "CTA clarity", "Contact path"],
               },
               {
-                q: "Is there any cost?",
-                a: "No! The audit is completely free. There's no obligation to work with us after receiving your report.",
+                icon: Search,
+                title: "Google Business",
+                checks: ["Profile completeness", "Categories set", "Photos & posts", "Q&A section"],
               },
               {
-                q: "What if I don't have a website?",
-                a: "That's fine! We can still audit your Google Business Profile, reviews, and local search visibility. This helps us understand what you need.",
+                icon: Star,
+                title: "Reviews",
+                checks: ["Review count", "Recent activity", "Response rate", "Trust score"],
               },
               {
-                q: "How will I receive the audit?",
-                a: "We'll send you a detailed report via email with specific recommendations and an action plan tailored to your business.",
+                icon: BarChart3,
+                title: "Local Visibility",
+                checks: ["Map Pack presence", "Search ranking", "Competitor gap", "Service area"],
               },
               {
-                q: "Can I get an audit for multiple locations?",
-                a: "Absolutely! Just let us know in the form, and we'll discuss how we can help each location.",
+                icon: Zap,
+                title: "Enquiry Path",
+                checks: ["How easy to contact", "Form / CTA quality", "Response setup", "Lead leaks"],
               },
-              {
-                q: "What happens after the audit?",
-                a: "You'll have a clear roadmap. If you'd like help implementing the recommendations, we can discuss our services with no pressure.",
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-lg border border-border">
-                <h3 className="font-bold text-lg text-primary mb-3">{item.q}</h3>
-                <p className="text-foreground/70">{item.a}</p>
+            ].map(({ icon: Icon, title, checks }) => (
+              <div key={title} className="bg-white rounded-xl p-5 border border-gray-200 hover:border-orange-400 transition-colors">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ background: TTM_ORANGE }}>
+                  <Icon size={18} className="text-white" />
+                </div>
+                <h3 className="font-bold text-sm mb-3" style={{ color: TTM_NAVY }}>{title}</h3>
+                <ul className="space-y-1">
+                  {checks.map((c) => (
+                    <li key={c} className="text-xs text-gray-500 flex items-center gap-1.5">
+                      <span style={{ color: TTM_GREEN }}>✓</span> {c}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 p-5 rounded-xl border-l-4 bg-white" style={{ borderColor: TTM_ORANGE }}>
+            <p className="text-sm text-gray-600">
+              <span className="font-bold" style={{ color: TTM_NAVY }}>What you get back: </span>
+              A clear summary of your 3 highest-priority fixes — specific, practical, and ranked by impact on enquiries. No waffle. No generic advice. Trades-specific findings only.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FORM + SIDEBAR ── */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container max-w-5xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+
+            {/* Sidebar */}
+            <div className="lg:col-span-2 order-2 lg:order-1">
+              <div className="sticky top-8 space-y-6">
+
+                <div className="rounded-xl p-6 border-2" style={{ borderColor: TTM_NAVY, background: "#F8F9FA" }}>
+                  <h3 className="font-black text-lg mb-4" style={{ color: TTM_NAVY }}>Who this is for</h3>
+                  <ul className="space-y-3">
+                    {[
+                      "Plumbers, electricians, roofers",
+                      "Landscapers, tree surgeons, gardeners",
+                      "Builders and local contractors",
+                      "Any trade with inconsistent enquiries",
+                      "Businesses with an outdated web presence",
+                      "Owner-operators who want more local work",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
+                        <CheckCircle size={14} style={{ color: TTM_GREEN }} className="flex-shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="rounded-xl p-6 text-white" style={{ background: TTM_NAVY }}>
+                  <h3 className="font-black text-base mb-3" style={{ color: TTM_ORANGE }}>After your audit</h3>
+                  <p className="text-white/75 text-sm leading-relaxed mb-4">
+                    If we identify quick wins, we'll outline exactly what they are and what it would take to fix them. No pressure to buy anything.
+                  </p>
+                  <div className="space-y-2">
+                    {[
+                      "Starter from £297",
+                      "Brand Launch Pack from £597",
+                      "Full Growth System from £997",
+                    ].map((item) => (
+                      <div key={item} className="flex items-center gap-2 text-sm text-white/85">
+                        <ArrowRight size={12} style={{ color: TTM_ORANGE }} />
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-white/40 text-xs mt-4">Founding client pricing — limited availability</p>
+                </div>
+
+                <div className="rounded-xl p-6 border border-gray-200 bg-white">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center font-black text-white text-sm" style={{ background: TTM_ORANGE }}>AG</div>
+                    <div>
+                      <p className="font-bold text-sm" style={{ color: TTM_NAVY }}>Alan Gray</p>
+                      <p className="text-xs text-gray-400">Founder, Tech Tradie Media</p>
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-500 leading-relaxed italic">
+                    "I built TTM because I kept seeing good tradespeople losing work to weaker competitors who just looked better online. The audit shows you exactly where that's happening to you."
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Form */}
+            <div className="lg:col-span-3 order-1 lg:order-2">
+              <div className="mb-8">
+                <h2 className="text-2xl md:text-3xl font-black mb-3" style={{ color: TTM_NAVY, fontFamily: "'Oswald', 'Impact', sans-serif" }}>
+                  Request Your Free Audit
+                </h2>
+                <p className="text-gray-500 text-sm">Takes 2 minutes. We'll get back to you within 24 hours.</p>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-5">
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: TTM_NAVY }}>
+                      Your name <span style={{ color: TTM_ORANGE }}>*</span>
+                    </label>
+                    <input
+                      name="name"
+                      required
+                      placeholder="e.g. Alan Smith"
+                      className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange-400 transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: TTM_NAVY }}>
+                      Your trade <span style={{ color: TTM_ORANGE }}>*</span>
+                    </label>
+                    <select
+                      name="trade"
+                      required
+                      className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange-400 transition-colors bg-white"
+                    >
+                      <option value="">Select your trade...</option>
+                      <option>Plumber</option>
+                      <option>Electrician</option>
+                      <option>Roofer</option>
+                      <option>Landscaper</option>
+                      <option>Tree Surgeon</option>
+                      <option>Builder / General Contractor</option>
+                      <option>Gardener</option>
+                      <option>Pressure Washing / Exterior Cleaning</option>
+                      <option>Painter / Decorator</option>
+                      <option>Joiner / Carpenter</option>
+                      <option>Other local service business</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2" style={{ color: TTM_NAVY }}>
+                    Town / city you work in <span style={{ color: TTM_ORANGE }}>*</span>
+                  </label>
+                  <input
+                    name="location"
+                    required
+                    placeholder="e.g. Leeds, Glasgow, Manchester"
+                    className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange-400 transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2" style={{ color: TTM_NAVY }}>
+                    Your website (if you have one)
+                  </label>
+                  <input
+                    name="website"
+                    placeholder="e.g. www.mybusiness.co.uk — leave blank if none"
+                    className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange-400 transition-colors"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: TTM_NAVY }}>
+                      Google Business set up? <span style={{ color: TTM_ORANGE }}>*</span>
+                    </label>
+                    <select
+                      name="google"
+                      required
+                      className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange-400 transition-colors bg-white"
+                    >
+                      <option value="">Select...</option>
+                      <option>Yes, fully set up</option>
+                      <option>Yes but not fully filled in</option>
+                      <option>Not sure</option>
+                      <option>No</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: TTM_NAVY }}>
+                      Approx. number of Google reviews <span style={{ color: TTM_ORANGE }}>*</span>
+                    </label>
+                    <select
+                      name="reviews"
+                      required
+                      className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange-400 transition-colors bg-white"
+                    >
+                      <option value="">Select...</option>
+                      <option>0 — none yet</option>
+                      <option>1–5</option>
+                      <option>6–20</option>
+                      <option>21–50</option>
+                      <option>50+</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2" style={{ color: TTM_NAVY }}>
+                    Biggest challenge right now <span style={{ color: TTM_ORANGE }}>*</span>
+                  </label>
+                  <select
+                    name="problem"
+                    required
+                    className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange-400 transition-colors bg-white"
+                  >
+                    <option value="">Select one...</option>
+                    <option>Not enough enquiries coming in</option>
+                    <option>Can't be found on Google</option>
+                    <option>Website looks outdated or unprofessional</option>
+                    <option>No website at all</option>
+                    <option>Not enough reviews or low trust signals</option>
+                    <option>Inconsistent work — feast or famine</option>
+                    <option>Losing jobs to competitors who look better online</option>
+                    <option>Something else</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2" style={{ color: TTM_NAVY }}>
+                    What would a win look like for you? <span className="text-gray-400 font-normal">(optional)</span>
+                  </label>
+                  <textarea
+                    name="goal"
+                    rows={3}
+                    placeholder="e.g. 5 more enquiries a month, showing up on Google Maps, looking more professional than the competition..."
+                    className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange-400 transition-colors resize-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-4 rounded-lg font-black text-lg text-white flex items-center justify-center gap-2 transition-opacity hover:opacity-90"
+                  style={{ background: TTM_ORANGE }}
+                >
+                  Send My Audit Request
+                  <ArrowRight size={20} />
+                </button>
+
+                <p className="text-center text-xs text-gray-400">
+                  We'll review your details and respond within 24 hours. No spam. No obligation. No hard sell.
+                </p>
+
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHAT HAPPENS NEXT ── */}
+      <section className="py-16 md:py-20" style={{ background: "#F8F9FA" }}>
+        <div className="container max-w-4xl mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-black text-center mb-12" style={{ color: TTM_NAVY, fontFamily: "'Oswald', 'Impact', sans-serif" }}>
+            What Happens After You Submit
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {[
+              { step: "01", title: "We review your details", desc: "We look at your website, Google Business profile, local rankings, and contact journey." },
+              { step: "02", title: "We identify your leaks", desc: "We find the 3 highest-priority things that are costing you enquiries right now." },
+              { step: "03", title: "You get honest feedback", desc: "A clear, specific summary — what's wrong, why it matters, and how to fix it." },
+              { step: "04", title: "You decide what's next", desc: "No pressure. If we can help, we'll say how. If you want to fix it yourself, that's fine too." },
+            ].map(({ step, title, desc }) => (
+              <div key={step} className="text-center">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center font-black text-white text-lg mx-auto mb-4" style={{ background: TTM_NAVY }}>
+                  {step}
+                </div>
+                <h3 className="font-bold text-sm mb-2" style={{ color: TTM_NAVY }}>{title}</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* ── OBJECTION HANDLING ── */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container max-w-3xl mx-auto px-4">
+          <h2 className="text-2xl font-black text-center mb-10" style={{ color: TTM_NAVY, fontFamily: "'Oswald', 'Impact', sans-serif" }}>
+            Common Questions
+          </h2>
+          <div className="space-y-4">
+            {[
+              {
+                q: "Is this really free?",
+                a: "Yes, completely. There's no catch, no credit card, no obligation. We review your online presence and give you honest feedback. Whether you work with us after that is entirely up to you.",
+              },
+              {
+                q: "I already have a website — do I still need this?",
+                a: "Probably yes. Most trades we speak to already have a website. The issue isn't usually having one — it's whether it's actually winning you work. We'll tell you honestly if yours is performing or leaking leads.",
+              },
+              {
+                q: "How long does it take?",
+                a: "Two minutes to fill in the form. We'll get back to you within 24 hours with findings. No lengthy calls required.",
+              },
+              {
+                q: "What if I want to fix things myself?",
+                a: "Absolutely fine. The audit findings are yours to do with as you like. We'll tell you what to fix and you can decide how.",
+              },
+              {
+                q: "I'm not very tech-savvy — is this too complicated?",
+                a: "That's exactly who this is built for. We explain everything in plain language. No jargon. No tech assumptions. Just clear, practical findings.",
+              },
+            ].map(({ q, a }) => (
+              <div key={q} className="rounded-xl border border-gray-200 p-6 hover:border-orange-400 transition-colors">
+                <h3 className="font-bold text-sm mb-2" style={{ color: TTM_NAVY }}>{q}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── BOTTOM CTA ── */}
+      <section className="py-16 md:py-20 text-white" style={{ background: TTM_NAVY }}>
+        <div className="container max-w-3xl mx-auto px-4 text-center">
+          <div className="absolute inset-0 pointer-events-none" style={{
+            backgroundImage: "linear-gradient(rgba(244,121,32,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(244,121,32,0.05) 1px, transparent 1px)",
+            backgroundSize: "40px 40px"
+          }} />
+          <h2 className="text-3xl md:text-4xl font-black mb-4" style={{ fontFamily: "'Oswald', 'Impact', sans-serif" }}>
+            Stop Losing Work to Competitors<br />
+            <span style={{ color: TTM_ORANGE }}>Who Just Look Better Online</span>
+          </h2>
+          <p className="text-white/70 mb-10 text-lg">
+            It takes 2 minutes. You'll know exactly where you stand within 24 hours.
+          </p>
+          <a href="#top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+            <button
+              className="px-10 py-4 rounded-lg font-black text-lg text-white inline-flex items-center gap-2 transition-opacity hover:opacity-90"
+              style={{ background: TTM_ORANGE }}
+            >
+              Request My Free Audit
+              <ArrowRight size={20} />
+            </button>
+          </a>
+          <p className="text-white/40 text-sm mt-6">techtradiemedia@gmail.com · @thetechtradiemedia · Leeds, UK</p>
+        </div>
+      </section>
+
+    </Layout>
+  );
+}
     </Layout>
   );
 }
