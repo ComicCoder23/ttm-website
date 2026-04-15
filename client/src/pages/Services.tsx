@@ -7,16 +7,22 @@ const TTM_GREEN = "#22C55E";
 
 export default function Services() {
   const servicesHeroImage = "https://d2xsxph8kpxj0f.cloudfront.net/310519663425723798/PkcYgtviR6pkuFobXP578T/ttm-services-trades-tools-V8Co8rkD88bBpnmnB25uRM.webp";
+  const FOUNDER_SLOTS_CLAIMED = 1; // Update manually as slots fill (max 5)
 
   return (
     <Layout>
 
       {/* ── PHASE 1 LAUNCH BANNER ── */}
-      <div style={{ background: TTM_GREEN }} className="w-full py-2 px-4 text-center">
-        <p className="text-sm font-bold text-white tracking-wide">
-          Phase 1 Services Now Live — Founding Client Pricing Available · Limited Slots
+      <a
+        href="/services#founder-pricing"
+        className="block w-full py-2.5 px-4 text-center hover:opacity-90 transition-opacity"
+        style={{ background: TTM_NAVY }}
+      >
+        <p className="text-sm font-bold tracking-wide" style={{ color: TTM_ORANGE }}>
+          Phase 1 Services Now Live —{" "}
+          <span className="text-white">Founding Client Pricing Available · Limited 5 Slots</span>
         </p>
-      </div>
+      </a>
 
       {/* ── HERO ── */}
       <section className="relative min-h-[400px] md:min-h-[500px] flex items-center overflow-hidden">
@@ -496,7 +502,7 @@ export default function Services() {
                         border: highlight ? "none" : "1px solid rgba(255,255,255,0.2)",
                       }}
                     >
-                      Claim Founder Slot — Free Audit First
+                      Claim Founder 5 Rate — Free Audit First
                     </button>
                   </a>
                 </div>
@@ -507,6 +513,43 @@ export default function Services() {
           <p className="text-center text-white/35 text-xs mt-6">
             Not sure which is right for you? The free audit will tell you exactly. No obligation.
           </p>
+
+          {/* ── FOUNDER 5 PARTNER ADVANTAGE ── */}
+          <div className="mt-10 rounded-2xl border-2 p-6 md:p-8" style={{ borderColor: TTM_ORANGE, background: "rgba(244,121,32,0.07)" }}>
+            <div className="flex flex-col md:flex-row md:items-center gap-4 mb-5">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: TTM_GREEN }} />
+                  <p className="text-xs font-black uppercase tracking-widest" style={{ color: TTM_ORANGE }}>
+                    Founder 5 Partner Advantage
+                  </p>
+                </div>
+                <p className="text-xs font-bold" style={{ color: "rgba(255,255,255,0.45)" }}>
+                  Founder slots claimed: {FOUNDER_SLOTS_CLAIMED} / 5
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+              <div className="rounded-lg p-4" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                <p className="text-xs font-semibold mb-1" style={{ color: "rgba(255,255,255,0.5)" }}>Standard from</p>
+                <p className="text-2xl font-black text-white">£297</p>
+                <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.4)" }}>Long-term anchor rate</p>
+              </div>
+              <div className="rounded-lg p-4" style={{ background: "rgba(244,121,32,0.12)", border: "1px solid rgba(244,121,32,0.3)" }}>
+                <p className="text-xs font-semibold mb-1" style={{ color: TTM_ORANGE }}>Founder 5 today</p>
+                <p className="text-2xl font-black" style={{ color: TTM_ORANGE }}>£247 effective</p>
+                <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>£50 credit applied</p>
+              </div>
+              <div className="rounded-lg p-4" style={{ background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.2)" }}>
+                <p className="text-xs font-semibold mb-1" style={{ color: TTM_GREEN }}>Rate locked</p>
+                <p className="text-sm font-bold text-white leading-snug">While Phase 1 slots remain</p>
+                <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.4)" }}>Reverts to standard once full</p>
+              </div>
+            </div>
+            <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
+              The £50 credit is applied to your founding package — not a discount on a reduced offering. Priority turnaround applies to all Founder 5 partners during Phase 1. In return, we ask for honest participation: a review if you're genuinely happy, a short testimonial, and permission to use your results as a case study. No pressure, ever.
+            </p>
+          </div>
         </div>
       </section>
 

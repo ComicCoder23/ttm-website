@@ -164,19 +164,28 @@ export default function Audit() {
                   <p className="text-white/75 text-sm leading-relaxed mb-4">
                     If we identify quick wins, we'll outline exactly what they are and what it would take to fix them. No pressure to buy anything.
                   </p>
-                  <div className="space-y-2">
-                    {[
-                      "Starter from £297",
-                      "Brand Launch Pack from £597",
-                      "Full Growth System from £997",
-                    ].map((item) => (
-                      <div key={item} className="flex items-center gap-2 text-sm text-white/85">
-                        <ArrowRight size={12} style={{ color: TTM_ORANGE }} />
-                        {item}
-                      </div>
-                    ))}
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-white/60">Standard packages from</span>
+                      <span className="font-bold text-white">£297</span>
+                    </div>
+                    <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }} />
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="font-bold" style={{ color: TTM_ORANGE }}>Founder 5 today</span>
+                      <span className="font-black text-lg" style={{ color: TTM_ORANGE }}>£247 effective</span>
+                    </div>
+                    <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }} />
+                    <div className="flex items-center gap-2 text-xs" style={{ color: "#22C55E" }}>
+                      <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#22C55E" }} />
+                      Locked while Phase 1 slots remain
+                    </div>
                   </div>
-                  <p className="text-white/40 text-xs mt-4">Founding client pricing — limited availability</p>
+                  <a href="/services#founder-pricing" className="block mt-4">
+                    <div className="w-full py-2 rounded-lg text-center text-xs font-black text-white hover:opacity-90 transition-opacity"
+                      style={{ background: TTM_ORANGE }}>
+                      View Founder 5 Pricing →
+                    </div>
+                  </a>
                 </div>
 
                 <div className="rounded-xl p-6 border border-gray-200 bg-white">

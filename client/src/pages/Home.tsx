@@ -7,6 +7,7 @@ const TTM_GREEN = "#22C55E";
 
 export default function Home() {
   const heroImage = "https://d2xsxph8kpxj0f.cloudfront.net/310519663425723798/PkcYgtviR6pkuFobXP578T/ttm-home-hero-construction-6zKgpwfNVGMku7ibEewGKo.webp";
+  const FOUNDER_SLOTS_CLAIMED = 1; // Update manually as slots fill (max 5)
 
   return (
     <Layout>
@@ -295,6 +296,43 @@ export default function Home() {
           <p className="text-center text-xs text-gray-400 mt-6">
             All prices are founding client rates. Not sure which is right for you? The free audit will tell you.
           </p>
+
+          {/* ── FOUNDER 5 PARTNER ADVANTAGE ── */}
+          <div className="mt-10 rounded-2xl border-2 p-6 md:p-8" style={{ borderColor: TTM_ORANGE, background: "#FFF7F0" }}>
+            <div className="flex flex-col md:flex-row md:items-center gap-4 mb-5">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: TTM_GREEN }} />
+                  <p className="text-xs font-black uppercase tracking-widest" style={{ color: TTM_ORANGE }}>
+                    Founder 5 Partner Advantage
+                  </p>
+                </div>
+                <p className="text-xs font-bold" style={{ color: "#9CA3AF" }}>
+                  Founder slots claimed: {FOUNDER_SLOTS_CLAIMED} / 5
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+              <div className="rounded-lg p-4 bg-white border border-gray-200">
+                <p className="text-xs font-semibold mb-1 text-gray-400">Standard from</p>
+                <p className="text-2xl font-black" style={{ color: TTM_NAVY }}>£297</p>
+                <p className="text-xs mt-1 text-gray-400">Long-term anchor rate</p>
+              </div>
+              <div className="rounded-lg p-4 border-2" style={{ borderColor: TTM_ORANGE, background: "#FFF0E0" }}>
+                <p className="text-xs font-semibold mb-1" style={{ color: TTM_ORANGE }}>Founder 5 today</p>
+                <p className="text-2xl font-black" style={{ color: TTM_ORANGE }}>£247 effective</p>
+                <p className="text-xs mt-1 text-gray-500">£50 credit applied</p>
+              </div>
+              <div className="rounded-lg p-4 border border-green-200 bg-green-50">
+                <p className="text-xs font-semibold mb-1" style={{ color: TTM_GREEN }}>Rate locked</p>
+                <p className="text-sm font-bold leading-snug" style={{ color: TTM_NAVY }}>While Phase 1 slots remain</p>
+                <p className="text-xs mt-1 text-gray-400">Reverts to standard once full</p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 leading-relaxed">
+              The £50 credit is applied to your founding package — not a discount on a reduced offering. Priority turnaround applies to all Founder 5 partners during Phase 1. In return, we ask for honest participation: a review if you're genuinely happy, a short testimonial, and permission to use your results as a case study. No pressure, ever.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -369,7 +407,7 @@ export default function Home() {
                     className="px-8 py-3 rounded-lg font-black text-white inline-flex items-center gap-2 transition-opacity hover:opacity-90"
                     style={{ background: TTM_ORANGE }}
                   >
-                    Claim Founding Rate
+                    Claim Founder 5 Rate
                     <ArrowRight size={18} />
                   </button>
                 </a>
