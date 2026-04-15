@@ -10,11 +10,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-                <span className="text-primary font-bold text-sm">T</span>
-              </div>
-              <span className="font-bold text-lg">Tech Tradie Media</span>
+            <div className="mb-5">
+              <img
+                src="/brand/ttm-roundel-master.png"
+                alt="Tech Tradie Media"
+                className="h-14 w-auto"
+                style={{ maxHeight: "56px" }}
+              />
             </div>
             <p className="text-white/80 text-sm">
               Digital tools for trades that work. Get found, get booked, get paid.

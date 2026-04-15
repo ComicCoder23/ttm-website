@@ -9,10 +9,23 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-border shadow-sm">
       <div className="container max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo — desktop: horizontal master, mobile: falcon icon */}
         <Link href="/">
-          <div className="flex items-center gap-3 hover:opacity-90 transition cursor-pointer">
-            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663425723798/PkcYgtviR6pkuFobXP578T/ttm-logo-official_7b68a569.png" alt="Tech Tradie Media" className="h-12 md:h-14 w-auto" />
+          <div className="flex items-center hover:opacity-90 transition cursor-pointer">
+            {/* Desktop: horizontal wordmark */}
+            <img
+              src="/brand/ttm-horizontal-master.png"
+              alt="Tech Tradie Media"
+              className="hidden md:block h-11 w-auto"
+              style={{ maxHeight: "44px" }}
+            />
+            {/* Mobile: falcon icon only */}
+            <img
+              src="/brand/falcon-icon-master.png"
+              alt="Tech Tradie Media"
+              className="block md:hidden h-10 w-auto"
+              style={{ maxHeight: "40px" }}
+            />
           </div>
         </Link>
 
