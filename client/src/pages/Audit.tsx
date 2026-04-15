@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import { PageMeta } from "@/components/PageMeta";
 import { ArrowRight, CheckCircle, Clock, Search, Star, Globe, BarChart3, Zap, Shield } from "lucide-react";
 
 const TTM_NAVY = "#1B3A6B";
@@ -24,6 +25,11 @@ export default function Audit() {
 
   return (
     <Layout>
+      <PageMeta
+        title="Free Digital Audit — Tech Tradie Media"
+        description="Get a free, honest review of your website, Google Business profile, and local visibility. For UK trades businesses. Response within 24 hours."
+        ogImage="/brand/ttm-horizontal-master.png"
+      />
 
       {/* ── TOP BANNER ── */}
       <div style={{ background: TTM_GREEN }} className="w-full py-2 px-4 text-center">
@@ -160,7 +166,16 @@ export default function Audit() {
                 </div>
 
                 <div className="rounded-xl p-6 text-white" style={{ background: TTM_NAVY }}>
-                  <h3 className="font-black text-base mb-3" style={{ color: TTM_ORANGE }}>After your audit</h3>
+                  {/* Roundel trust seal */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <img
+                      src="/brand/ttm-roundel-master.png"
+                      alt="Tech Tradie Media"
+                      className="h-10 w-auto flex-shrink-0"
+                      style={{ objectFit: "contain" }}
+                    />
+                    <h3 className="font-black text-base" style={{ color: TTM_ORANGE }}>After your audit</h3>
+                  </div>
                   <p className="text-white/75 text-sm leading-relaxed mb-4">
                     If we identify quick wins, we'll outline exactly what they are and what it would take to fix them. No pressure to buy anything.
                   </p>
@@ -190,7 +205,16 @@ export default function Audit() {
 
                 <div className="rounded-xl p-6 border border-gray-200 bg-white">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center font-black text-white text-sm" style={{ background: TTM_ORANGE }}>AG</div>
+                    {/* Falcon icon — official TTM compact mark */}
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden"
+                      style={{ background: "#1B3A6B" }}>
+                      <img
+                        src="/brand/falcon-icon-master.png"
+                        alt="TTM"
+                        className="w-8 h-8"
+                        style={{ objectFit: "contain" }}
+                      />
+                    </div>
                     <div>
                       <p className="font-bold text-sm" style={{ color: TTM_NAVY }}>Alan Gray</p>
                       <p className="text-xs text-gray-400">Founder, Tech Tradie Media</p>

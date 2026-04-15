@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import { PageMeta } from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -52,6 +53,10 @@ export default function Contact() {
 
   return (
     <Layout>
+      <PageMeta
+        title="Contact — Tech Tradie Media"
+        description="Get in touch with Tech Tradie Media. Start with a free digital audit or ask about founding partner pricing for UK trades."
+      />
 
       {/* ── FOUNDER TRUST STRIP ── */}
       <a
@@ -158,11 +163,20 @@ export default function Contact() {
                 <a href="/services#founder-pricing" className="block">
                   <div className="p-6 rounded-lg border-2 cursor-pointer hover:opacity-95 transition-opacity"
                     style={{ background: "#1B3A6B", borderColor: "#F47920" }}>
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#22C55E" }} />
-                      <p className="text-xs font-black uppercase tracking-widest" style={{ color: "#F47920" }}>
-                        Phase 1 Services Now Live
-                      </p>
+                    {/* Roundel brand seal + live indicator */}
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#22C55E" }} />
+                        <p className="text-xs font-black uppercase tracking-widest" style={{ color: "#F47920" }}>
+                          Phase 1 Services Now Live
+                        </p>
+                      </div>
+                      <img
+                        src="/brand/ttm-roundel-master.png"
+                        alt="Tech Tradie Media"
+                        className="h-8 w-auto flex-shrink-0"
+                        style={{ objectFit: "contain" }}
+                      />
                     </div>
                     <p className="font-bold text-sm mb-3" style={{ color: "rgba(255,255,255,0.7)" }}>
                       Founding Client Pricing Available · Limited 5 Slots

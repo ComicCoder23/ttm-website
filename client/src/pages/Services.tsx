@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import { PageMeta } from "@/components/PageMeta";
 import { Globe, MapPin, Star, TrendingUp, Zap, ArrowRight, CheckCircle, Shield, MessageSquare, Camera, Calendar, FileText, UserPlus } from "lucide-react";
 
 const TTM_NAVY = "#1B3A6B";
@@ -11,6 +12,10 @@ export default function Services() {
 
   return (
     <Layout>
+      <PageMeta
+        title="Services — Tech Tradie Media"
+        description="Five practical digital services for UK trades: website builds, Google Business, review systems, local SEO, and enquiry funnels. Founding client pricing available."
+      />
 
       {/* ── PHASE 1 LAUNCH BANNER ── */}
       <a
@@ -338,11 +343,14 @@ export default function Services() {
         <div className="container max-w-5xl mx-auto px-4 pt-16">
           <div className="rounded-2xl border p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-5"
             style={{ borderColor: "rgba(244,121,32,0.4)", background: "rgba(244,121,32,0.07)" }}>
+            {/* Roundel brand stamp — official seal replacing generic icon */}
             <div className="flex-shrink-0">
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center"
-                style={{ background: "rgba(244,121,32,0.15)", border: "1px solid rgba(244,121,32,0.3)" }}>
-                <Shield size={22} style={{ color: TTM_ORANGE }} />
-              </div>
+              <img
+                src="/brand/ttm-roundel-master.png"
+                alt="Tech Tradie Media"
+                className="h-14 w-auto"
+                style={{ maxHeight: "56px", objectFit: "contain" }}
+              />
             </div>
             <div>
               <p className="font-black text-sm uppercase tracking-widest mb-1" style={{ color: TTM_ORANGE }}>

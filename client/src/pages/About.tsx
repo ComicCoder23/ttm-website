@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import { PageMeta } from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Heart, Target, Users, Zap } from "lucide-react";
@@ -8,6 +9,11 @@ export default function About() {
   
   return (
     <Layout>
+      <PageMeta
+        title="About — Tech Tradie Media"
+        description="Built to help UK trades get more enquiries and more work. Practical digital tools, honest advice — no corporate jargon."
+      />
+
       {/* Hero Section */}
       <section className="relative min-h-[400px] md:min-h-[500px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -19,6 +25,13 @@ export default function About() {
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
         <div className="container max-w-7xl mx-auto px-4 py-16 md:py-24 relative z-10">
+          {/* Horizontal master in hero overlay */}
+          <img
+            src="/brand/ttm-horizontal-master.png"
+            alt="Tech Tradie Media"
+            className="h-10 w-auto mb-5"
+            style={{ objectFit: "contain" }}
+          />
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Tech Tradie Media</h1>
           <p className="text-xl text-white/90">Built to help trades get more enquiries and more work.</p>
         </div>
@@ -28,7 +41,16 @@ export default function About() {
       <section className="py-16 md:py-24 bg-white">
         <div className="container max-w-7xl mx-auto px-4">
           <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8">Why I Built This</h2>
+            {/* Founder credibility — roundel stamp beside heading */}
+            <div className="flex items-center gap-4 mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary">Why I Built This</h2>
+              <img
+                src="/brand/ttm-roundel-master.png"
+                alt="Tech Tradie Media"
+                className="h-10 w-auto flex-shrink-0"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
             <div className="space-y-6 text-lg text-foreground/80 leading-relaxed">
               <p>
                 I've spent time around trades and seen how hard people graft day in, day out.
@@ -165,6 +187,15 @@ export default function About() {
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-primary text-white">
         <div className="container max-w-7xl mx-auto px-4 text-center">
+          {/* Roundel brand stamp above CTA */}
+          <div className="flex justify-center mb-6">
+            <img
+              src="/brand/ttm-roundel-master.png"
+              alt="Tech Tradie Media"
+              className="h-16 w-auto"
+              style={{ objectFit: "contain" }}
+            />
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Get More Work?</h2>
           <p className="text-lg text-white/90 max-w-2xl mx-auto mb-8">
             Start with a free digital audit. We'll show you exactly what's holding your business back online and how we can help.

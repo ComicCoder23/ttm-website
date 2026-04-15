@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import { PageMeta } from "@/components/PageMeta";
 import { ArrowRight, CheckCircle, Star, Globe, Search, TrendingUp, Zap } from "lucide-react";
 
 const TTM_NAVY = "#1B3A6B";
@@ -11,6 +12,10 @@ export default function Home() {
 
   return (
     <Layout>
+      <PageMeta
+        title="Tech Tradie Media — Digital Tools for UK Trades"
+        description="Get more calls, quotes, and jobs from your online presence. Practical digital tools for UK trades businesses. Website builds, Google Business, reviews, and local SEO."
+      />
 
       {/* ── FOUNDER TRUST STRIP ── */}
       <a
