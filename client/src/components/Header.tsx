@@ -16,15 +16,13 @@ export default function Header() {
             <img
               src="/brand/ttm-horizontal-master.png"
               alt="Tech Tradie Media"
-              className="hidden md:block h-11 w-auto"
-              style={{ maxHeight: "44px" }}
+              className="hidden md:block h-14 w-auto"
             />
             {/* Mobile: falcon icon only */}
             <img
               src="/brand/falcon-icon-master.png"
               alt="Tech Tradie Media"
-              className="block md:hidden h-10 w-auto"
-              style={{ maxHeight: "40px" }}
+              className="block md:hidden h-12 w-auto"
             />
           </div>
         </Link>

@@ -29,7 +29,7 @@ export default function About() {
           <img
             src="/brand/ttm-horizontal-master.png"
             alt="Tech Tradie Media"
-            className="h-10 w-auto mb-5"
+            className="h-12 w-auto mb-5"
             style={{ objectFit: "contain" }}
           />
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Tech Tradie Media</h1>
@@ -47,7 +47,7 @@ export default function About() {
               <img
                 src="/brand/ttm-roundel-master.png"
                 alt="Tech Tradie Media"
-                className="h-10 w-auto flex-shrink-0"
+                className="h-14 w-auto flex-shrink-0"
                 style={{ objectFit: "contain" }}
               />
             </div>
@@ -192,8 +192,8 @@ export default function About() {
             <img
               src="/brand/ttm-roundel-master.png"
               alt="Tech Tradie Media"
-              className="h-16 w-auto"
-              style={{ objectFit: "contain" }}
+              className="h-24 w-auto"
+              style={{ objectFit: "contain", filter: "drop-shadow(0 0 8px rgba(255,255,255,0.3))" }}
             />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Get More Work?</h2>

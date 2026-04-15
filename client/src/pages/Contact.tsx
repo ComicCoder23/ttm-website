@@ -174,8 +174,8 @@ export default function Contact() {
                       <img
                         src="/brand/ttm-roundel-master.png"
                         alt="Tech Tradie Media"
-                        className="h-8 w-auto flex-shrink-0"
-                        style={{ objectFit: "contain" }}
+                        className="h-12 w-auto flex-shrink-0"
+                        style={{ objectFit: "contain", filter: "drop-shadow(0 0 8px rgba(255,255,255,0.3))" }}
                       />
                     </div>
                     <p className="font-bold text-sm mb-3" style={{ color: "rgba(255,255,255,0.7)" }}>

@@ -339,7 +339,7 @@ export default function Services() {
       </section>
 
       {/* ── FOUNDING PARTNER TRUST BANNER ── */}
-      <section id="founder-pricing" className="py-0" style={{ background: TTM_NAVY }}>
+      <section id="founder-pricing" className="py-0" style={{ background: TTM_NAVY, scrollMarginTop: "88px" }}>
         <div className="container max-w-5xl mx-auto px-4 pt-16">
           <div className="rounded-2xl border p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-5"
             style={{ borderColor: "rgba(244,121,32,0.4)", background: "rgba(244,121,32,0.07)" }}>
@@ -348,8 +348,8 @@ export default function Services() {
               <img
                 src="/brand/ttm-roundel-master.png"
                 alt="Tech Tradie Media"
-                className="h-14 w-auto"
-                style={{ maxHeight: "56px", objectFit: "contain" }}
+                className="h-20 w-auto"
+                style={{ objectFit: "contain", filter: "drop-shadow(0 0 8px rgba(255,255,255,0.3))" }}
               />
             </div>
             <div>

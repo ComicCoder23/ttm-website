@@ -14,8 +14,7 @@ export default function Footer() {
               <img
                 src="/brand/ttm-roundel-master.png"
                 alt="Tech Tradie Media"
-                className="h-14 w-auto"
-                style={{ maxHeight: "56px" }}
+                className="h-20 w-auto"
               />
             </div>
             <p className="text-white/80 text-sm">
@@ -91,8 +90,8 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/70">
             <p>&copy; {currentYear} Tech Tradie Media. All rights reserved.</p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-accent transition">Privacy Policy</a>
-              <a href="#" className="hover:text-accent transition">Terms of Service</a>
+              <span className="text-white/40 cursor-default" aria-disabled="true">Privacy Policy</span>
+              <span className="text-white/40 cursor-default" aria-disabled="true">Terms of Service</span>
             </div>
           </div>
         </div>

@@ -171,8 +171,8 @@ export default function Audit() {
                     <img
                       src="/brand/ttm-roundel-master.png"
                       alt="Tech Tradie Media"
-                      className="h-10 w-auto flex-shrink-0"
-                      style={{ objectFit: "contain" }}
+                      className="h-14 w-auto flex-shrink-0"
+                      style={{ objectFit: "contain", filter: "drop-shadow(0 0 8px rgba(255,255,255,0.3))" }}
                     />
                     <h3 className="font-black text-base" style={{ color: TTM_ORANGE }}>After your audit</h3>
                   </div>
@@ -206,12 +206,12 @@ export default function Audit() {
                 <div className="rounded-xl p-6 border border-gray-200 bg-white">
                   <div className="flex items-center gap-3 mb-3">
                     {/* Falcon icon — official TTM compact mark */}
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden"
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden"
                       style={{ background: "#1B3A6B" }}>
                       <img
                         src="/brand/falcon-icon-master.png"
                         alt="TTM"
-                        className="w-8 h-8"
+                        className="w-10 h-10"
                         style={{ objectFit: "contain" }}
                       />
                     </div>
@@ -477,15 +477,14 @@ export default function Audit() {
           <p className="text-white/70 mb-10 text-lg">
             It takes 2 minutes. You'll know exactly where you stand within 24 hours.
           </p>
-          <a href="#top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-            <button
-              className="px-10 py-4 rounded-lg font-black text-lg text-white inline-flex items-center gap-2 transition-opacity hover:opacity-90"
-              style={{ background: TTM_ORANGE }}
-            >
-              Request My Free Audit
-              <ArrowRight size={20} />
-            </button>
-          </a>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="px-10 py-4 rounded-lg font-black text-lg text-white inline-flex items-center gap-2 transition-opacity hover:opacity-90"
+            style={{ background: TTM_ORANGE }}
+          >
+            Request My Free Audit
+            <ArrowRight size={20} />
+          </button>
           <p className="text-white/40 text-sm mt-6">techtradiemedia@gmail.com · @thetechtradiemedia · Greater Glasgow · Central Scotland · UK-wide remote</p>
         </div>
       </section>
