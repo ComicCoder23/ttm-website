@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
-import { Globe, MapPin, Star, TrendingUp, Zap, ArrowRight, CheckCircle, Shield, MessageSquare, Camera, Calendar, FileText, UserPlus } from "lucide-react";
+import { Globe, MapPin, Star, TrendingUp, Zap, ArrowRight, CheckCircle, MessageSquare, Camera, Calendar, FileText, UserPlus } from "lucide-react";
 
 const TTM_NAVY = "#1B3A6B";
 const TTM_ORANGE = "#F47920";
