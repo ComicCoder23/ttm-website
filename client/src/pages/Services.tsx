@@ -635,4 +635,19 @@ export default function Services() {
           </p>
           <a href="/audit">
             <button
-              className
+              className="px-10 py-4 rounded-lg font-black text-lg text-white inline-flex items-center gap-2 transition-opacity hover:opacity-90"
+              style={{ background: TTM_ORANGE }}
+            >
+              Get Your Free Digital Audit
+              <ArrowRight size={20} />
+            </button>
+          </a>
+          <p className="text-gray-400 text-sm mt-6">
+            Greater Glasgow · Central Scotland · UK-wide remote
+          </p>
+        </div>
+      </section>
+
+    </Layout>
+  );
+}
