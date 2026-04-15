@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import { Globe, MapPin, Star, TrendingUp, Zap, ArrowRight, CheckCircle } from "lucide-react";
+import { Globe, MapPin, Star, TrendingUp, Zap, ArrowRight, CheckCircle, Shield, MessageSquare, Camera, Calendar, FileText, UserPlus } from "lucide-react";
 
 const TTM_NAVY = "#1B3A6B";
 const TTM_ORANGE = "#F47920";
@@ -327,20 +327,39 @@ export default function Services() {
         </div>
       </section>
 
+      {/* ── FOUNDING PARTNER TRUST BANNER ── */}
+      <section id="founder-pricing" className="py-0" style={{ background: TTM_NAVY }}>
+        <div className="container max-w-5xl mx-auto px-4 pt-16">
+          <div className="rounded-2xl border p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-5"
+            style={{ borderColor: "rgba(244,121,32,0.4)", background: "rgba(244,121,32,0.07)" }}>
+            <div className="flex-shrink-0">
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center"
+                style={{ background: "rgba(244,121,32,0.15)", border: "1px solid rgba(244,121,32,0.3)" }}>
+                <Shield size={22} style={{ color: TTM_ORANGE }} />
+              </div>
+            </div>
+            <div>
+              <p className="font-black text-sm uppercase tracking-widest mb-1" style={{ color: TTM_ORANGE }}>
+                Founding Partner Pricing
+              </p>
+              <p className="text-white/80 text-sm leading-relaxed">
+                The first 5 trade businesses receive a <span className="font-bold text-white">£50 launch partner credit</span> in exchange for honest feedback and proof participation. Standard investment prices remain visible as the long-term rate — this credit applies to founding partners only.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── PRICING ── */}
-      <section className="py-16 md:py-24" style={{ background: TTM_NAVY }}>
+      <section className="pb-16 md:pb-24 pt-10" style={{ background: TTM_NAVY }}>
         <div className="container max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full border border-green-400/30 bg-green-500/10">
-              <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: TTM_GREEN }} />
-              <span className="text-green-300 text-sm font-semibold tracking-wider uppercase">Founding Client Pricing</span>
-            </div>
             <h2 className="text-3xl md:text-4xl font-black text-white mb-3"
               style={{ fontFamily: "'Oswald', 'Impact', sans-serif" }}>
               Straightforward Pricing.<br />No Hidden Extras.
             </h2>
-            <p className="text-white/60 max-w-xl mx-auto">
-              These are founding client rates — locked in early for clients who come aboard while we're building our track record.
+            <p className="text-white/55 max-w-xl mx-auto text-sm">
+              Phase 1 limited to 5 founding trade partners.
             </p>
           </div>
 
@@ -348,7 +367,8 @@ export default function Services() {
             {[
               {
                 name: "Starter",
-                price: "£297",
+                standardPrice: "£297",
+                founderPrice: "£247",
                 tagline: "Get visible and professional",
                 features: [
                   "Professional trade website",
@@ -360,7 +380,8 @@ export default function Services() {
               },
               {
                 name: "Brand Launch Pack",
-                price: "£597",
+                standardPrice: "£597",
+                founderPrice: "£547",
                 tagline: "Build trust and visibility fast",
                 features: [
                   "Everything in Starter",
@@ -373,7 +394,8 @@ export default function Services() {
               },
               {
                 name: "Full Growth System",
-                price: "£997",
+                standardPrice: "£997",
+                founderPrice: "£947",
                 tagline: "The complete digital presence",
                 features: [
                   "Everything in Brand Launch Pack",
@@ -384,57 +406,177 @@ export default function Services() {
                 ],
                 highlight: false,
               },
-            ].map(({ name, price, tagline, features, highlight }) => (
+            ].map(({ name, standardPrice, founderPrice, tagline, features, highlight }) => (
               <div
                 key={name}
-                className="rounded-xl p-6 border-2 flex flex-col relative"
+                className="rounded-xl flex flex-col relative overflow-hidden"
                 style={{
-                  borderColor: highlight ? TTM_ORANGE : "rgba(255,255,255,0.1)",
-                  background: highlight ? "white" : "rgba(255,255,255,0.05)",
+                  border: highlight ? `2px solid ${TTM_ORANGE}` : "2px solid rgba(255,255,255,0.1)",
+                  background: highlight ? "white" : "rgba(255,255,255,0.04)",
                 }}
               >
                 {highlight && (
                   <div
-                    className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-black text-white"
+                    className="absolute top-0 left-0 right-0 py-1.5 text-center text-xs font-black text-white tracking-wider"
                     style={{ background: TTM_ORANGE }}
                   >
                     MOST POPULAR
                   </div>
                 )}
-                <div className="mb-5">
-                  <h3 className="font-black text-lg mb-1"
-                    style={{ color: highlight ? TTM_NAVY : "white" }}>{name}</h3>
-                  <p className="text-sm mb-4"
-                    style={{ color: highlight ? "#6B7280" : "rgba(255,255,255,0.55)" }}>{tagline}</p>
-                  <div className="text-4xl font-black" style={{ color: TTM_ORANGE }}>{price}</div>
+
+                <div className={`p-6 flex-1 flex flex-col ${highlight ? "pt-10" : ""}`}>
+                  {/* Package header */}
+                  <div className="mb-6">
+                    <h3 className="font-black text-lg mb-1"
+                      style={{ color: highlight ? TTM_NAVY : "white" }}>{name}</h3>
+                    <p className="text-sm"
+                      style={{ color: highlight ? "#6B7280" : "rgba(255,255,255,0.5)" }}>{tagline}</p>
+                  </div>
+
+                  {/* 3-layer pricing breakdown */}
+                  <div className="rounded-lg p-4 mb-6 space-y-2"
+                    style={{ background: highlight ? "#F8F9FA" : "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }}>
+
+                    {/* Standard Investment */}
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-semibold uppercase tracking-wider"
+                        style={{ color: highlight ? "#9CA3AF" : "rgba(255,255,255,0.4)" }}>
+                        Standard Investment
+                      </span>
+                      <span className="text-sm font-bold"
+                        style={{ color: highlight ? "#6B7280" : "rgba(255,255,255,0.5)" }}>
+                        {standardPrice}
+                      </span>
+                    </div>
+
+                    {/* Divider */}
+                    <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }} />
+
+                    {/* Launch Partner Credit */}
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-semibold uppercase tracking-wider"
+                        style={{ color: TTM_GREEN }}>
+                        Launch Partner Credit
+                      </span>
+                      <span className="text-sm font-bold" style={{ color: TTM_GREEN }}>−£50</span>
+                    </div>
+
+                    {/* Divider */}
+                    <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }} />
+
+                    {/* Today's Founder Price */}
+                    <div className="flex items-center justify-between pt-1">
+                      <span className="text-xs font-black uppercase tracking-wider"
+                        style={{ color: highlight ? TTM_NAVY : "rgba(255,255,255,0.9)" }}>
+                        Today's Founder Price
+                      </span>
+                      <span className="text-2xl font-black" style={{ color: TTM_ORANGE }}>
+                        {founderPrice}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Features */}
+                  <ul className="space-y-2 mb-8 flex-1">
+                    {features.map((f) => (
+                      <li key={f} className="flex items-start gap-2 text-sm"
+                        style={{ color: highlight ? "#4B5563" : "rgba(255,255,255,0.7)" }}>
+                        <CheckCircle size={14} style={{ color: TTM_GREEN }} className="flex-shrink-0 mt-0.5" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA */}
+                  <a href="/audit">
+                    <button
+                      className="w-full py-3 rounded-lg font-black text-sm text-white transition-opacity hover:opacity-90"
+                      style={{
+                        background: highlight ? TTM_ORANGE : "rgba(255,255,255,0.1)",
+                        border: highlight ? "none" : "1px solid rgba(255,255,255,0.2)",
+                      }}
+                    >
+                      Claim Founder Slot — Free Audit First
+                    </button>
+                  </a>
                 </div>
-                <ul className="space-y-2 mb-8 flex-1">
-                  {features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm"
-                      style={{ color: highlight ? "#4B5563" : "rgba(255,255,255,0.75)" }}>
-                      <CheckCircle size={14} style={{ color: TTM_GREEN }} className="flex-shrink-0 mt-0.5" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <a href="/audit">
-                  <button
-                    className="w-full py-3 rounded-lg font-black text-sm text-white transition-opacity hover:opacity-90"
-                    style={{
-                      background: highlight ? TTM_ORANGE : "rgba(255,255,255,0.1)",
-                      border: highlight ? "none" : "1px solid rgba(255,255,255,0.2)",
-                    }}
-                  >
-                    Start with a Free Audit
-                  </button>
-                </a>
               </div>
             ))}
           </div>
 
           <p className="text-center text-white/35 text-xs mt-6">
-            Not sure which is right for you? The free audit will tell you. No obligation.
+            Not sure which is right for you? The free audit will tell you exactly. No obligation.
           </p>
+        </div>
+      </section>
+
+      {/* ── WHAT WE ASK IN RETURN ── */}
+      <section className="py-14 md:py-20" style={{ background: "#0F2547" }}>
+        <div className="container max-w-4xl mx-auto px-4">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-black text-white mb-3"
+              style={{ fontFamily: "'Oswald', 'Impact', sans-serif" }}>
+              What We Ask in Return
+            </h2>
+            <p className="text-white/55 text-sm max-w-xl mx-auto">
+              The founder credit isn't a discount — it's a partnership. Here's what we're asking for in exchange. Everything on this list is optional if circumstances change; we're building a relationship, not enforcing a contract.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              {
+                icon: Star,
+                title: "Honest Google Review",
+                desc: "Only if you're genuinely happy with the results. We'd rather earn it than ask for it upfront.",
+              },
+              {
+                icon: MessageSquare,
+                title: "WhatsApp Testimonial",
+                desc: "A short written note on what worked for you — in your own words, no polish required.",
+              },
+              {
+                icon: Camera,
+                title: "Before & After Screenshots",
+                desc: "Permission to use comparison visuals of your online presence pre and post our work.",
+              },
+              {
+                icon: Calendar,
+                title: "30-Day Result Check-In",
+                desc: "A brief catch-up at the one-month mark so we can document what's moved and what to tweak.",
+              },
+              {
+                icon: FileText,
+                title: "Case Study Permission",
+                desc: "Allow us to write up your journey as an anonymised or named case study for future clients.",
+              },
+              {
+                icon: UserPlus,
+                title: "One Referral Intro",
+                desc: "If you're happy, introduce us to one other trade business who could benefit. No pressure, ever.",
+              },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="rounded-xl p-5 border"
+                style={{ borderColor: "rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.04)" }}>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                    style={{ background: "rgba(244,121,32,0.15)" }}>
+                    <Icon size={15} style={{ color: TTM_ORANGE }} />
+                  </div>
+                  <h3 className="font-bold text-sm text-white">{title}</h3>
+                </div>
+                <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>{desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 rounded-xl p-5 border text-center"
+            style={{ borderColor: "rgba(34,197,94,0.25)", background: "rgba(34,197,94,0.06)" }}>
+            <p className="text-sm" style={{ color: "rgba(255,255,255,0.65)" }}>
+              <span className="font-bold" style={{ color: TTM_GREEN }}>Phase 1 limited to 5 founding trade partners.</span>
+              {" "}Once those slots are filled, standard pricing applies and the credit is no longer available.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -450,17 +592,4 @@ export default function Services() {
           </p>
           <a href="/audit">
             <button
-              className="px-10 py-4 rounded-lg font-black text-lg text-white inline-flex items-center gap-2 transition-opacity hover:opacity-90"
-              style={{ background: TTM_ORANGE }}
-            >
-              Get Your Free Digital Audit
-              <ArrowRight size={20} />
-            </button>
-          </a>
-          <p className="text-gray-400 text-sm mt-6">techtradiemedia@gmail.com · Leeds, UK</p>
-        </div>
-      </section>
-
-    </Layout>
-  );
-}
+              className

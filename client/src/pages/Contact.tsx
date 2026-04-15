@@ -52,6 +52,19 @@ export default function Contact() {
 
   return (
     <Layout>
+
+      {/* ── FOUNDER TRUST STRIP ── */}
+      <a
+        href="/services#founder-pricing"
+        className="block w-full py-2.5 px-4 text-center hover:opacity-90 transition-opacity"
+        style={{ background: "#1B3A6B" }}
+      >
+        <p className="text-sm font-bold tracking-wide" style={{ color: "#F47920" }}>
+          Phase 1 Services Now Live —{" "}
+          <span className="text-white">Founding Client Pricing Available · Limited 5 Slots</span>
+        </p>
+      </a>
+
       {/* Hero Section */}
       <section className="relative min-h-[400px] md:min-h-[500px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -120,7 +133,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg text-primary mb-1">Location</h3>
-                    <p className="text-foreground/70 font-semibold">United Kingdom</p>
+                    <p className="text-foreground/70 font-semibold">Greater Glasgow · Central Scotland · UK-wide remote</p>
                     <p className="text-foreground/70 text-sm mt-1">Serving UK trades nationwide</p>
                   </div>
                 </div>
@@ -142,17 +155,27 @@ export default function Contact() {
 
               {/* Decision Path */}
               <div className="mt-12 space-y-4">
-                <div className="p-6 bg-secondary rounded-lg border-2 border-accent">
-                  <h3 className="font-bold text-lg text-primary mb-3">Option 1: Free Digital Audit</h3>
-                  <p className="text-foreground/70 mb-4">
-                    We'll analyze your current online presence and show you exactly what's holding your business back.
-                  </p>
-                  <Link href="/audit">
-                    <Button className="w-full bg-accent hover:bg-orange-600 text-white font-bold" asChild>
-                      Start Your Free Audit
-                    </Button>
-                  </Link>
-                </div>
+                <a href="/services#founder-pricing" className="block">
+                  <div className="p-6 rounded-lg border-2 cursor-pointer hover:opacity-95 transition-opacity"
+                    style={{ background: "#1B3A6B", borderColor: "#F47920" }}>
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#22C55E" }} />
+                      <p className="text-xs font-black uppercase tracking-widest" style={{ color: "#F47920" }}>
+                        Phase 1 Services Now Live
+                      </p>
+                    </div>
+                    <p className="font-bold text-sm mb-3" style={{ color: "rgba(255,255,255,0.7)" }}>
+                      Founding Client Pricing Available · Limited 5 Slots
+                    </p>
+                    <p className="text-white/75 text-sm mb-4 leading-relaxed">
+                      Start with a free digital audit and secure founding pricing before Phase 1 fills.
+                    </p>
+                    <div className="w-full py-2.5 rounded-lg font-black text-sm text-center text-white"
+                      style={{ background: "#F47920" }}>
+                      View Founding Partner Pricing →
+                    </div>
+                  </div>
+                </a>
                 <div className="p-6 bg-secondary rounded-lg border-2 border-accent">
                   <h3 className="font-bold text-lg text-primary mb-3">Option 2: Get Your First 10 Posts</h3>
                   <p className="text-foreground/70 mb-4">
@@ -286,8 +309,8 @@ export default function Contact() {
                 a: "For urgent matters, give us a call. For general inquiries, email works great. We respond to all messages within 24 hours.",
               },
               {
-                q: "Do you work with trades outside Australia?",
-                a: "Currently, we focus on Australian trades businesses. If you're interested in our services from elsewhere, contact us to discuss.",
+                q: "Do you work with trades outside Central Scotland?",
+                a: "We're based in Greater Glasgow and work across Central Scotland in person. We also take on UK-wide remote clients — if you're based elsewhere in the UK, get in touch and we'll let you know if we can help.",
               },
               {
                 q: "Can I book a call directly?",

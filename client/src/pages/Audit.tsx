@@ -250,7 +250,7 @@ export default function Audit() {
                   <input
                     name="location"
                     required
-                    placeholder="e.g. Leeds, Glasgow, Manchester"
+                    placeholder="e.g. Glasgow, Edinburgh, Stirling"
                     className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange-400 transition-colors"
                   />
                 </div>
@@ -418,13 +418,25 @@ export default function Audit() {
         </div>
       </section>
 
+      {/* ── FOUNDER TRUST STRIP ── */}
+      <a
+        href="/services#founder-pricing"
+        className="block w-full py-2.5 px-4 text-center hover:opacity-90 transition-opacity"
+        style={{ background: TTM_NAVY }}
+      >
+        <p className="text-sm font-bold tracking-wide" style={{ color: TTM_ORANGE }}>
+          Phase 1 Services Now Live —{" "}
+          <span className="text-white">Founding Client Pricing Available · Limited 5 Slots</span>
+        </p>
+      </a>
+
       {/* ── BOTTOM CTA ── */}
-      <section className="py-16 md:py-20 text-white" style={{ background: TTM_NAVY }}>
-        <div className="container max-w-3xl mx-auto px-4 text-center">
-          <div className="absolute inset-0 pointer-events-none" style={{
-            backgroundImage: "linear-gradient(rgba(244,121,32,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(244,121,32,0.05) 1px, transparent 1px)",
-            backgroundSize: "40px 40px"
-          }} />
+      <section className="py-16 md:py-20 text-white relative overflow-hidden" style={{ background: TTM_NAVY }}>
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: "linear-gradient(rgba(244,121,32,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(244,121,32,0.05) 1px, transparent 1px)",
+          backgroundSize: "40px 40px"
+        }} />
+        <div className="container max-w-3xl mx-auto px-4 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-black mb-4" style={{ fontFamily: "'Oswald', 'Impact', sans-serif" }}>
             Stop Losing Work to Competitors<br />
             <span style={{ color: TTM_ORANGE }}>Who Just Look Better Online</span>
@@ -441,7 +453,7 @@ export default function Audit() {
               <ArrowRight size={20} />
             </button>
           </a>
-          <p className="text-white/40 text-sm mt-6">techtradiemedia@gmail.com · @thetechtradiemedia · Leeds, UK</p>
+          <p className="text-white/40 text-sm mt-6">techtradiemedia@gmail.com · @thetechtradiemedia · Greater Glasgow · Central Scotland · UK-wide remote</p>
         </div>
       </section>
 

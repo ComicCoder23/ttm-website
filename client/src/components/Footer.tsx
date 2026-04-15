@@ -78,7 +78,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin size={16} className="mt-1 flex-shrink-0 text-accent" />
-                <span className="text-white/80">United Kingdom</span>
+                <span className="text-white/80">Greater Glasgow · Central Scotland · UK-wide remote</span>
               </li>
             </ul>
           </div>

@@ -11,12 +11,17 @@ export default function Home() {
   return (
     <Layout>
 
-      {/* ── PHASE 1 LAUNCH BANNER ── */}
-      <div style={{ background: TTM_GREEN }} className="w-full py-2 px-4 text-center">
-        <p className="text-sm font-bold text-white tracking-wide">
-          Phase 1 Services Now Live — Founding Client Pricing Available · Limited Slots
+      {/* ── FOUNDER TRUST STRIP ── */}
+      <a
+        href="/services#founder-pricing"
+        className="block w-full py-2 px-4 text-center hover:opacity-90 transition-opacity"
+        style={{ background: TTM_NAVY }}
+      >
+        <p className="text-sm font-bold tracking-wide" style={{ color: TTM_ORANGE }}>
+          Phase 1 Services Now Live —{" "}
+          <span className="text-white">Founding Client Pricing Available · Limited 5 Slots</span>
         </p>
-      </div>
+      </a>
 
       {/* ── HERO ── */}
       <section className="relative min-h-[600px] md:min-h-screen flex items-center overflow-hidden">
@@ -311,17 +316,17 @@ export default function Home() {
               {
                 quote: "Within 3 months of launching the new site, we were getting noticeably more calls. It's been a proper game-changer for the business.",
                 trade: "Plumbing Business",
-                location: "Leeds",
+                location: "Glasgow",
               },
               {
                 quote: "The Google Business work alone put us in front of customers we'd never have reached before. We're showing up where it actually matters now.",
                 trade: "Electrical Services",
-                location: "Manchester",
+                location: "Edinburgh",
               },
               {
                 quote: "No jargon, no faff — they just fixed what was wrong and told us why. Our enquiries have been more consistent since the first month.",
                 trade: "Landscaping Services",
-                location: "Sheffield",
+                location: "Stirling",
               },
             ].map(({ quote, trade, location }) => (
               <div key={trade} className="rounded-xl p-6 border border-white/10 bg-white/5">
@@ -359,7 +364,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex-shrink-0">
-                <a href="/audit">
+                <a href="/services#founder-pricing">
                   <button
                     className="px-8 py-3 rounded-lg font-black text-white inline-flex items-center gap-2 transition-opacity hover:opacity-90"
                     style={{ background: TTM_ORANGE }}
@@ -398,7 +403,7 @@ export default function Home() {
               <ArrowRight size={20} />
             </button>
           </a>
-          <p className="text-white/40 text-sm mt-6">techtradiemedia@gmail.com · @thetechtradiemedia · Leeds, UK</p>
+          <p className="text-white/40 text-sm mt-6">techtradiemedia@gmail.com · @thetechtradiemedia · Greater Glasgow · Central Scotland · UK-wide remote</p>
         </div>
       </section>
 
