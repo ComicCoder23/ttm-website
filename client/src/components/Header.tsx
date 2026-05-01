@@ -46,8 +46,17 @@ export default function Header() {
           </Link>
         </nav>
 
-        {/* Desktop CTA Button */}
-        <div className="hidden md:block">
+        {/* Desktop CTA Buttons */}
+        <div className="hidden md:flex items-center gap-3">
+          <a
+            href="https://wa.me/447432754561"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
+            style={{ background: "#25D366" }}
+          >
+            Message Us
+          </a>
           <Link href="/audit">
             <Button className="bg-accent hover:bg-orange-600 text-white font-bold px-6 py-2" asChild>
               Free Audit
@@ -84,6 +93,16 @@ export default function Header() {
             <Link href="/contact" className="text-foreground hover:text-accent transition font-medium py-2" onClick={() => setIsOpen(false)}>
               Contact
             </Link>
+            <a
+              href="https://wa.me/447432754561"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-2 rounded-full text-sm font-bold text-white text-center transition-opacity hover:opacity-90"
+              style={{ background: "#25D366" }}
+              onClick={() => setIsOpen(false)}
+            >
+              Message Us on WhatsApp
+            </a>
             <Link href="/audit">
               <Button className="w-full bg-accent hover:bg-orange-600 text-white font-bold" asChild onClick={() => setIsOpen(false)}>
                 Free Audit

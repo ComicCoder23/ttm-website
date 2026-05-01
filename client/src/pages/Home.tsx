@@ -7,7 +7,7 @@ const TTM_ORANGE = "#F47920";
 const TTM_GREEN = "#22C55E";
 
 export default function Home() {
-  const heroImage = "https://d2xsxph8kpxj0f.cloudfront.net/310519663425723798/PkcYgtviR6pkuFobXP578T/ttm-home-hero-construction-6zKgpwfNVGMku7ibEewGKo.webp";
+  const heroImage = "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80";
   const FOUNDER_SLOTS_CLAIMED = 1; // Update manually as slots fill (max 5)
 
   return (
@@ -432,15 +432,29 @@ export default function Home() {
           <p className="text-white/70 mb-10 text-lg">
             Start with a free audit. We'll show you exactly what's holding your business back and the fastest fixes.
           </p>
-          <a href="/audit">
-            <button
-              className="px-10 py-4 rounded-lg font-black text-lg text-white inline-flex items-center gap-2 transition-opacity hover:opacity-90"
-              style={{ background: TTM_ORANGE }}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/audit">
+              <button
+                className="px-10 py-4 rounded-lg font-black text-lg text-white inline-flex items-center gap-2 transition-opacity hover:opacity-90"
+                style={{ background: TTM_ORANGE }}
+              >
+                Get Your Free Digital Audit
+                <ArrowRight size={20} />
+              </button>
+            </a>
+            <a
+              href="https://wa.me/447432754561"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Get Your Free Digital Audit
-              <ArrowRight size={20} />
-            </button>
-          </a>
+              <button
+                className="px-10 py-4 rounded-lg font-black text-lg text-white inline-flex items-center gap-2 transition-opacity hover:opacity-90"
+                style={{ background: "#25D366" }}
+              >
+                Message Us on WhatsApp
+              </button>
+            </a>
+          </div>
           <p className="text-white/40 text-sm mt-6">techtradiemedia@gmail.com · @thetechtradiemedia · Greater Glasgow · Central Scotland · UK-wide remote</p>
           <p className="text-white/40 text-sm mt-2">07432 754561</p>
         </div>
