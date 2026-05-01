@@ -348,8 +348,7 @@ export default function Services() {
               <img
                 src="/brand/ttm-roundel-master.png"
                 alt="Tech Tradie Media"
-                className="h-20 w-auto"
-                style={{ objectFit: "contain", filter: "drop-shadow(0 0 8px rgba(255,255,255,0.3))" }}
+                style={{ height: "92px", width: "auto", objectFit: "contain", filter: "drop-shadow(0 0 8px rgba(255,255,255,0.35))" }}
               />
             </div>
             <div>

@@ -36,7 +36,7 @@ export default function Header() {
             Services
           </Link>
           <Link href="/social-media" className="text-foreground hover:text-accent transition font-medium">
-            Social Media
+            Content
           </Link>
           <Link href="/about" className="text-foreground hover:text-accent transition font-medium">
             About
@@ -76,7 +76,7 @@ export default function Header() {
               Services
             </Link>
             <Link href="/social-media" className="text-foreground hover:text-accent transition font-medium py-2" onClick={() => setIsOpen(false)}>
-              Social Media
+              Content
             </Link>
             <Link href="/about" className="text-foreground hover:text-accent transition font-medium py-2" onClick={() => setIsOpen(false)}>
               About

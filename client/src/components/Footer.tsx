@@ -14,7 +14,7 @@ export default function Footer() {
               <img
                 src="/brand/ttm-roundel-master.png"
                 alt="Tech Tradie Media"
-                className="h-20 w-auto"
+                style={{ height: "58px", width: "auto" }}
               />
             </div>
             <p className="text-white/80 text-sm">

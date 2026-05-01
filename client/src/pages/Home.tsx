@@ -30,7 +30,7 @@ export default function Home() {
       </a>
 
       {/* ── HERO ── */}
-      <section className="relative min-h-[600px] md:min-h-screen flex items-center overflow-hidden">
+      <section className="relative min-h-[600px] md:min-h-screen flex items-start overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
@@ -44,7 +44,7 @@ export default function Home() {
           }} />
         </div>
 
-        <div className="container max-w-5xl mx-auto px-4 py-20 md:py-32 relative z-10">
+        <div className="container max-w-5xl mx-auto px-4 pt-12 md:pt-16 pb-12 md:pb-16 relative z-10">
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-orange-400/30 bg-orange-500/10">
             <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
             <span className="text-orange-300 text-sm font-semibold tracking-wider uppercase">Founding Client Pricing Available</span>
@@ -83,7 +83,7 @@ export default function Home() {
       </section>
 
       {/* ── PROBLEM ── */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-10 md:py-12 bg-white">
         <div className="container max-w-5xl mx-auto px-4">
           <div className="max-w-3xl mb-12">
             <h2 className="text-3xl md:text-4xl font-black mb-6"
@@ -113,7 +113,7 @@ export default function Home() {
       </section>
 
       {/* ── SOLUTION ── */}
-      <section className="py-16 md:py-24 text-white" style={{ background: TTM_NAVY }}>
+      <section className="py-10 md:py-12 text-white" style={{ background: TTM_NAVY }}>
         <div className="container max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black mb-4"
@@ -148,11 +148,6 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-white">
         <div className="container max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full border"
-              style={{ borderColor: TTM_ORANGE, background: "#FFF7F0" }}>
-              <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: TTM_GREEN }} />
-              <span className="text-sm font-bold" style={{ color: TTM_ORANGE }}>Phase 1 Services Now Live</span>
-            </div>
             <h2 className="text-3xl md:text-4xl font-black mb-3"
               style={{ color: TTM_NAVY, fontFamily: "'Oswald', 'Impact', sans-serif" }}>
               Practical Solutions for UK Trades
@@ -196,7 +191,7 @@ export default function Home() {
       </section>
 
       {/* ── PRICING ── */}
-      <section className="py-16 md:py-24" style={{ background: "#F8F9FA" }}>
+      <section className="py-10 md:py-12" style={{ background: "#F8F9FA" }}>
         <div className="container max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full border"
@@ -303,7 +298,7 @@ export default function Home() {
           </p>
 
           {/* ── FOUNDER 5 PARTNER ADVANTAGE ── */}
-          <div className="mt-10 rounded-2xl border-2 p-6 md:p-8" style={{ borderColor: TTM_ORANGE, background: "#FFF7F0" }}>
+          <div className="mt-6 rounded-2xl border-2 p-6 md:p-8" style={{ borderColor: TTM_ORANGE, background: "#FFF7F0" }}>
             <div className="flex flex-col md:flex-row md:items-center gap-4 mb-5">
               <div>
                 <div className="flex items-center gap-2 mb-1">
@@ -342,7 +337,7 @@ export default function Home() {
       </section>
 
       {/* ── TESTIMONIALS (ILLUSTRATIVE) ── */}
-      <section className="py-16 md:py-24 text-white" style={{ background: TTM_NAVY }}>
+      <section className="py-10 md:py-12 text-white" style={{ background: TTM_NAVY }}>
         <div className="container max-w-5xl mx-auto px-4">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-black mb-3"
@@ -390,7 +385,7 @@ export default function Home() {
       </section>
 
       {/* ── PLATFORM EXPANSION ── */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-8 md:py-10 bg-white">
         <div className="container max-w-5xl mx-auto px-4">
           <div className="rounded-2xl p-8 border-2" style={{ borderColor: TTM_ORANGE, background: "#FFF7F0" }}>
             <div className="flex flex-col md:flex-row items-center gap-6">
@@ -447,6 +442,7 @@ export default function Home() {
             </button>
           </a>
           <p className="text-white/40 text-sm mt-6">techtradiemedia@gmail.com · @thetechtradiemedia · Greater Glasgow · Central Scotland · UK-wide remote</p>
+          <p className="text-white/40 text-sm mt-2">07432 754561</p>
         </div>
       </section>
 

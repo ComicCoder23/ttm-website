@@ -29,8 +29,8 @@ export default function About() {
           <img
             src="/brand/ttm-horizontal-master.png"
             alt="Tech Tradie Media"
-            className="h-12 w-auto mb-5"
-            style={{ objectFit: "contain" }}
+            className="mb-5"
+            style={{ width: "80px", height: "auto", objectFit: "contain", filter: "drop-shadow(0 0 6px rgba(255,255,255,0.45))" }}
           />
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Tech Tradie Media</h1>
           <p className="text-xl text-white/90">Built to help trades get more enquiries and more work.</p>
@@ -192,8 +192,7 @@ export default function About() {
             <img
               src="/brand/ttm-roundel-master.png"
               alt="Tech Tradie Media"
-              className="h-24 w-auto"
-              style={{ objectFit: "contain", filter: "drop-shadow(0 0 8px rgba(255,255,255,0.3))" }}
+              style={{ height: "68px", width: "auto", objectFit: "contain", filter: "drop-shadow(0 0 8px rgba(255,255,255,0.35))" }}
             />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Get More Work?</h2>
