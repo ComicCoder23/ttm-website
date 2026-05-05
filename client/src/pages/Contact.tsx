@@ -21,6 +21,7 @@ export default function Contact() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [fallbackEmail, setFallbackEmail] = useState<{ href: string; body: string } | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -37,23 +38,22 @@ export default function Contact() {
 
     setIsSubmitting(true);
 
-    const subject = encodeURIComponent(formData.subject || "Website enquiry");
-    const body = encodeURIComponent(
-      [
-        "Hi Tech Tradie Media,",
-        "",
-        "I'd like to send an enquiry.",
-        "",
-        `Name: ${formData.name}`,
-        `Email: ${formData.email}`,
-        `Phone: ${formData.phone || "Not supplied"}`,
-        "",
-        "Message:",
-        formData.message,
-      ].join("\n")
-    );
+    const body = [
+      "Hi Tech Tradie Media,",
+      "",
+      "I'd like to send an enquiry.",
+      "",
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      `Phone: ${formData.phone || "Not supplied"}`,
+      "",
+      "Message:",
+      formData.message,
+    ].join("\n");
+    const href = `mailto:techtradiemedia@gmail.com?subject=${encodeURIComponent(formData.subject || "Website enquiry")}&body=${encodeURIComponent(body)}`;
 
-    window.location.href = `mailto:techtradiemedia@gmail.com?subject=${subject}&body=${body}`;
+    setFallbackEmail({ href, body });
+    window.location.assign(href);
     toast.success("Your email app should open with the message ready to send.");
     setIsSubmitting(false);
   };
@@ -113,7 +113,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg text-primary mb-1">Phone</h3>
-                    <a href="tel:07432754561" className="text-accent hover:text-orange-600 transition font-semibold">
+                    <a href="tel:+447432754561" className="text-accent hover:text-orange-600 transition font-semibold">
                       07432 754561
                     </a>
                     <p className="text-foreground/70 text-sm mt-1">Mon-Fri, 9 AM - 5 PM UK time</p>
@@ -311,6 +311,28 @@ export default function Contact() {
                   <p className="text-xs text-foreground/60 text-center">
                     We respect your privacy. We'll only use your information to respond to your message.
                   </p>
+
+                  {fallbackEmail && (
+                    <div className="rounded-lg border-2 border-orange-200 bg-orange-50 p-4 text-sm text-gray-700">
+                      <p className="font-bold text-primary mb-2">
+                        If your email app did not open
+                      </p>
+                      <p className="mb-3">
+                        Tap the backup link below, or send the details shown here to techtradiemedia@gmail.com.
+                      </p>
+                      <a
+                        href={fallbackEmail.href}
+                        className="inline-flex items-center justify-center rounded-lg px-4 py-2 text-white font-bold bg-accent hover:bg-orange-600"
+                      >
+                        Open Email Again
+                      </a>
+                      <Textarea
+                        readOnly
+                        value={fallbackEmail.body}
+                        className="mt-4 w-full min-h-40 rounded-lg border border-orange-200 bg-white p-3 text-xs text-gray-600"
+                      />
+                    </div>
+                  )}
                 </form>
               </div>
             </div>

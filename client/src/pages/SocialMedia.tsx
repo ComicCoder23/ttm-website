@@ -357,7 +357,7 @@ export default function SocialMedia() {
                 </span>
               </Button>
             </Link>
-            <a href="tel:07432754561" className="inline-block">
+            <a href="tel:+447432754561" className="inline-block">
               <Button className="bg-white hover:bg-gray-100 text-primary font-bold px-8 py-3 text-lg">
                 Call Us: 07432 754561
               </Button>

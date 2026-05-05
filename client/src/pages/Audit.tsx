@@ -1,26 +1,60 @@
 import Layout from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { ArrowRight, CheckCircle, Clock, Search, Star, Globe, BarChart3, Zap, Shield } from "lucide-react";
+import { useState } from "react";
 
 const TTM_NAVY = "#1B3A6B";
 const TTM_ORANGE = "#F47920";
 const TTM_GREEN = "#22C55E";
 
 export default function Audit() {
+  const [fallbackEmail, setFallbackEmail] = useState<{ href: string; body: string } | null>(null);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const data = new FormData(form);
-    const name = encodeURIComponent(data.get("name") as string);
-    const trade = encodeURIComponent(data.get("trade") as string);
-    const location = encodeURIComponent(data.get("location") as string);
-    const website = encodeURIComponent(data.get("website") as string ?? "None");
-    const google = encodeURIComponent(data.get("google") as string);
-    const reviews = encodeURIComponent(data.get("reviews") as string);
-    const problem = encodeURIComponent(data.get("problem") as string);
-    const goal = encodeURIComponent(data.get("goal") as string);
-    const body = `Hi Tech Tradie Media,%0A%0AI'd like a free digital audit.%0A%0AName: ${name}%0ATrade: ${trade}%0ALocation: ${location}%0AWebsite: ${website}%0AGoogle Business set up: ${google}%0ANumber of reviews: ${reviews}%0ABiggest challenge: ${problem}%0AMain goal: ${goal}%0A%0ALooking forward to hearing from you.`;
-    window.location.href = `mailto:techtradiemedia@gmail.com?subject=Free Digital Audit Request — ${trade}&body=${body}`;
+
+    const getValue = (field: string, fallback = "Not supplied") => {
+      const value = data.get(field);
+      return typeof value === "string" && value.trim() ? value.trim() : fallback;
+    };
+
+    const name = getValue("name");
+    const email = getValue("email");
+    const phone = getValue("phone");
+    const trade = getValue("trade");
+    const subTrade = getValue("subTrade");
+    const location = getValue("location");
+    const website = getValue("website", "None");
+    const google = getValue("google");
+    const reviews = getValue("reviews");
+    const problem = getValue("problem");
+    const goal = getValue("goal");
+
+    const body = [
+      "Hi Tech Tradie Media,",
+      "",
+      "I'd like a free digital audit.",
+      "",
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Phone: ${phone}`,
+      `Trade: ${trade}`,
+      `Sub-trade / specialist work: ${subTrade}`,
+      `Location: ${location}`,
+      `Website: ${website}`,
+      `Google Business set up: ${google}`,
+      `Number of reviews: ${reviews}`,
+      `Biggest challenge: ${problem}`,
+      `Main goal: ${goal}`,
+      "",
+      "Looking forward to hearing from you.",
+    ].join("\n");
+
+    const href = `mailto:techtradiemedia@gmail.com?subject=${encodeURIComponent(`Free Digital Audit Request - ${trade}`)}&body=${encodeURIComponent(body)}`;
+    setFallbackEmail({ href, body });
+    window.location.assign(href);
   };
 
   return (
@@ -261,19 +295,98 @@ export default function Audit() {
                       className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange-400 transition-colors bg-white"
                     >
                       <option value="">Select your trade...</option>
-                      <option>Plumber</option>
-                      <option>Electrician</option>
-                      <option>Roofer</option>
-                      <option>Landscaper</option>
-                      <option>Tree Surgeon</option>
-                      <option>Builder / General Contractor</option>
-                      <option>Gardener</option>
-                      <option>Pressure Washing / Exterior Cleaning</option>
-                      <option>Painter / Decorator</option>
                       <option>Joiner / Carpenter</option>
+                      <option>Builder / General Contractor</option>
+                      <option>Roofer</option>
+                      <option>Plumber / Heating Engineer</option>
+                      <option>Electrician</option>
+                      <option>Gas Engineer</option>
+                      <option>Bathroom Fitter</option>
+                      <option>Kitchen Fitter</option>
+                      <option>Painter / Decorator</option>
+                      <option>Plasterer / Renderer</option>
+                      <option>Tiler</option>
+                      <option>Flooring Installer</option>
+                      <option>Window / Door Installer</option>
+                      <option>Garage Door / Roller Shutter Installer</option>
+                      <option>Locksmith</option>
+                      <option>Landscaper</option>
+                      <option>Gardener</option>
+                      <option>Tree Surgeon</option>
+                      <option>Fencing / Decking</option>
+                      <option>Driveways / Paving</option>
+                      <option>Groundworks / Drainage</option>
+                      <option>Pressure Washing / Exterior Cleaning</option>
+                      <option>Gutter Cleaning / Fascias</option>
+                      <option>Cleaning Services</option>
+                      <option>Waste Removal / Man and Van</option>
+                      <option>Appliance Repair</option>
+                      <option>Security / CCTV / Alarms</option>
+                      <option>Renewables / Solar / EV Charging</option>
                       <option>Other local service business</option>
                     </select>
                   </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: TTM_NAVY }}>
+                      Email address <span style={{ color: TTM_ORANGE }}>*</span>
+                    </label>
+                    <input
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="you@business.co.uk"
+                      className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange-400 transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: TTM_NAVY }}>
+                      Phone number <span className="text-gray-400 font-normal">(optional)</span>
+                    </label>
+                    <input
+                      name="phone"
+                      type="tel"
+                      placeholder="07432 123456"
+                      className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange-400 transition-colors"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2" style={{ color: TTM_NAVY }}>
+                    Specialist services / sub-trades
+                  </label>
+                  <input
+                    name="subTrade"
+                    list="sub-trade-options"
+                    placeholder="e.g. fire doors, kit builds, first fix, second fix, extensions"
+                    className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange-400 transition-colors"
+                  />
+                  <datalist id="sub-trade-options">
+                    <option value="Joiner - fire doors" />
+                    <option value="Joiner - kit builds" />
+                    <option value="Joiner - first fix" />
+                    <option value="Joiner - second fix" />
+                    <option value="Joiner - kitchens" />
+                    <option value="Joiner - fitted wardrobes" />
+                    <option value="Builder - extensions" />
+                    <option value="Builder - garage conversions" />
+                    <option value="Roofer - flat roofs" />
+                    <option value="Roofer - slate and tile repairs" />
+                    <option value="Plumber - emergency leaks" />
+                    <option value="Heating engineer - boiler installs" />
+                    <option value="Electrician - rewires" />
+                    <option value="Electrician - EV chargers" />
+                    <option value="Landscaper - patios" />
+                    <option value="Landscaper - artificial grass" />
+                    <option value="Tree surgeon - removals" />
+                    <option value="Exterior cleaning - driveways" />
+                  </datalist>
+                  <p className="text-xs text-gray-400 mt-2">
+                    Add the work you most want to win. This helps us judge whether your site is attracting the right jobs.
+                  </p>
                 </div>
 
                 <div>
@@ -380,6 +493,29 @@ export default function Audit() {
                 <p className="text-center text-xs text-gray-400">
                   We'll review your details and respond within 24 hours. No spam. No obligation. No hard sell.
                 </p>
+
+                {fallbackEmail && (
+                  <div className="rounded-lg border-2 border-orange-200 bg-orange-50 p-4 text-sm text-gray-700">
+                    <p className="font-bold mb-2" style={{ color: TTM_NAVY }}>
+                      If your email app did not open
+                    </p>
+                    <p className="mb-3">
+                      Tap the backup link below, or send the details shown here to techtradiemedia@gmail.com.
+                    </p>
+                    <a
+                      href={fallbackEmail.href}
+                      className="inline-flex items-center justify-center rounded-lg px-4 py-2 text-white font-bold"
+                      style={{ background: TTM_ORANGE }}
+                    >
+                      Open Email Again
+                    </a>
+                    <textarea
+                      readOnly
+                      value={fallbackEmail.body}
+                      className="mt-4 w-full min-h-40 rounded-lg border border-orange-200 bg-white p-3 text-xs text-gray-600"
+                    />
+                  </div>
+                )}
 
               </form>
             </div>
