@@ -37,18 +37,25 @@ export default function Contact() {
 
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast.success("Message sent! We'll get back to you within 24 hours.");
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      });
-    }, 1000);
+    const subject = encodeURIComponent(formData.subject || "Website enquiry");
+    const body = encodeURIComponent(
+      [
+        "Hi Tech Tradie Media,",
+        "",
+        "I'd like to send an enquiry.",
+        "",
+        `Name: ${formData.name}`,
+        `Email: ${formData.email}`,
+        `Phone: ${formData.phone || "Not supplied"}`,
+        "",
+        "Message:",
+        formData.message,
+      ].join("\n")
+    );
+
+    window.location.href = `mailto:techtradiemedia@gmail.com?subject=${subject}&body=${body}`;
+    toast.success("Your email app should open with the message ready to send.");
+    setIsSubmitting(false);
   };
 
   return (
@@ -196,7 +203,7 @@ export default function Contact() {
                     Ready to start building your social media presence? Get your first 10 posts ready to go.
                   </p>
                   <Link href="/social-media">
-                    <Button className="w-full bg-accent hover:bg-orange-600 text-white font-bold" asChild>
+                    <Button className="w-full bg-accent hover:bg-orange-600 text-white font-bold">
                       Get Your First 10 Posts
                     </Button>
                   </Link>

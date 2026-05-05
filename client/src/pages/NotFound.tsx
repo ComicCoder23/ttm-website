@@ -17,12 +17,12 @@ export default function NotFound() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/">
-              <Button className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3" asChild>
+              <Button className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3">
                 Back to Home
               </Button>
             </Link>
             <Link href="/audit">
-              <Button variant="outline" className="border-accent text-accent hover:bg-accent hover:text-white font-bold px-8 py-3" asChild>
+              <Button variant="outline" className="border-accent text-accent hover:bg-accent hover:text-white font-bold px-8 py-3">
                 Get Free Audit
               </Button>
             </Link>

@@ -200,7 +200,7 @@ export default function About() {
             Start with a free digital audit. We'll show you exactly what's holding your business back online and how we can help.
           </p>
           <Link href="/audit">
-            <Button className="bg-accent hover:bg-orange-600 text-white font-bold px-8 py-3 text-lg" asChild>
+            <Button className="bg-accent hover:bg-orange-600 text-white font-bold px-8 py-3 text-lg">
               Get Your Free Digital Audit
             </Button>
           </Link>

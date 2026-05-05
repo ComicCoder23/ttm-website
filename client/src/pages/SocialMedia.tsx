@@ -224,7 +224,7 @@ export default function SocialMedia() {
               A simple starter pack using your existing job photos to get your business visible quickly. Perfect for trades just getting started with social media.
             </p>
             <Link href="/audit">
-              <Button className="bg-accent hover:bg-orange-600 text-white font-bold px-8 py-3 text-lg" asChild>
+              <Button className="bg-accent hover:bg-orange-600 text-white font-bold px-8 py-3 text-lg">
                 Get Your First 10 Posts
               </Button>
             </Link>
@@ -272,7 +272,6 @@ export default function SocialMedia() {
                           ? "bg-accent hover:bg-orange-600 text-white"
                           : "bg-primary hover:bg-blue-800 text-white"
                       }`}
-                      asChild
                     >
                       {pkg.cta}
                     </Button>
@@ -351,7 +350,7 @@ export default function SocialMedia() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/audit">
-              <Button className="bg-accent hover:bg-orange-600 text-white font-bold px-8 py-3 text-lg" asChild>
+              <Button className="bg-accent hover:bg-orange-600 text-white font-bold px-8 py-3 text-lg">
                 <span className="flex items-center gap-2">
                   Get Your Free Consultation
                   <ArrowRight size={20} />

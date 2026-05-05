@@ -58,7 +58,7 @@ export default function Header() {
             Message Us
           </a>
           <Link href="/audit">
-            <Button className="bg-accent hover:bg-orange-600 text-white font-bold px-6 py-2" asChild>
+            <Button className="bg-accent hover:bg-orange-600 text-white font-bold px-6 py-2">
               Free Audit
             </Button>
           </Link>
@@ -104,7 +104,7 @@ export default function Header() {
               Message Us on WhatsApp
             </a>
             <Link href="/audit">
-              <Button className="w-full bg-accent hover:bg-orange-600 text-white font-bold" asChild onClick={() => setIsOpen(false)}>
+              <Button className="w-full bg-accent hover:bg-orange-600 text-white font-bold" onClick={() => setIsOpen(false)}>
                 Free Audit
               </Button>
             </Link>
