@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node D:\\AI_CONTROL_TOWER\\03_AGENTS\\site-audit-agent\\trigger.js deploy"
+          }
+        ]
+      }
+    ]
+  }
+}
